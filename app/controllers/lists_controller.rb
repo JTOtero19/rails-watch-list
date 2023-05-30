@@ -5,7 +5,7 @@ class ListsController < ApplicationController
 
   def new
     @list = List.new
-    @movies = Movie.all
+    # @movies = Movie.all
   end
 
   def show
@@ -15,7 +15,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-      redirect_to lists_path(@List)
+      redirect_to list_path(@list)
     else
       render :new, status: :unprocessable_entity
     end
